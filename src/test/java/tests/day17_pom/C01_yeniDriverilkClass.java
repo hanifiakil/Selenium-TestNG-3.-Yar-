@@ -15,8 +15,10 @@ public class C01_yeniDriverilkClass {
         Driver.getDriver()      in
         driver                  out
          */
+        Driver.closeDriver();
         Driver.getDriver().get("https://www.facebook.com");
         Driver.getDriver().get("https://bestbuy.com");
 
+        Driver.closeDriver();
     }
 }
