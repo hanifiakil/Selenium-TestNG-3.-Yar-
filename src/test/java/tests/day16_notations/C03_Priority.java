@@ -1,19 +1,19 @@
-package day16_notations;
+package tests.day16_notations;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.TestBase;
 
-public class C02_BeforeClass_AfterClass extends TestBase {
-// JUnit te @BeforeClass ve @AfterClass notasyonuna sahip metodlar static olmak zorundaydı
-    //TestNG bu zorunluluktan bizi kurtarıyor
-
+public class C03_Priority extends TestBase {
     /*
-    TestNG bize daha fazla before ve after notasyonları sunar
-    diğer before/after notasyonları tanımlayacağımız
-    grup, test veya sut den önce ve sonra çalışırlar
-    ileride xml dosyaları ile birlikte göreceğiz
+    TestNG test method larını isim sırasına göre çalıştırır
+    eğer isim sıralamasının dışında bir sıralama ile çalışmasını isterseniz
+    ozaman test method larına öncelik(priority) tanımlayabiliriz
+
+    priority küçükten büyüğe doğru çalışır
+    eğer bir test method una priority değeri atanmamışsa
+    default olarak priority=0 kabul edilir
      */
 
     @BeforeClass
@@ -24,7 +24,7 @@ public class C02_BeforeClass_AfterClass extends TestBase {
     public void afterClassMethod(){
         System.out.println("After Class");
     }
-    @Test
+    @Test(priority = 5)
     public void amazonTesti() {
 
         driver.get("https://www.amazon.com");
@@ -33,7 +33,7 @@ public class C02_BeforeClass_AfterClass extends TestBase {
 
     }
 
-    @Test
+    @Test(priority = -2)
     public void test02() {
 
         driver.get("https://www.bestbuy.com");

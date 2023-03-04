@@ -1,4 +1,4 @@
-package day16_notations;
+package tests.day16_notations;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import utilities.TestBase;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class C07_SoftAssert extends TestBase {
@@ -68,7 +70,21 @@ public class C07_SoftAssert extends TestBase {
         // "Eurozone (euro)","Great Britain (pound)","Hong Kong (dollar)","Japan (yen)","Mexico (peso)","Norway (krone)",
         // "New Zealand (dollar)","Sweden (krona)","Singapore (dollar)","Thailand (baht)"
 
-        List<WebElement> optionList=select.getOptions();
+        List<WebElement> tumOpsiyonlar= select.getOptions();
+        // option listesi webelementlerden olusyor
+        // expected liste ise String, bunun icin opsiyon listyesini String yapmaliyiz
+
+        List<String> tumOpsiyonlarString=new ArrayList<>();
+        for (WebElement each:tumOpsiyonlar
+        ) {
+            tumOpsiyonlarString.add(each.getText());
+        }
+
+        List<String> expectedOptionsList= Arrays.asList("Select One", "Australia (dollar)", "Canada (dollar)","Switzerland (franc)","China (yuan)","Denmark (krone)","Eurozone (euro)","Great Britain (pound)","Hong Kong (dollar)","Japan (yen)","Mexico (peso)","Norway (krone)","New Zealand (dollar)","Sweden (krona)","Singapore (dollar)","Thailand (baht)");
+
+        softAssert.assertEquals(tumOpsiyonlarString,expectedOptionsList,"liste farkli");
+
+        softAssert.assertAll();
 
     }
 }
