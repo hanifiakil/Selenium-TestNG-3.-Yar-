@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<!-- bir xml dosyası ile projemizden istediğimiz testleri, package leri
+class ları veya test method larını çalıştırabiliriz
+bunu için yapmamız gereken; suite den başlayıp
+test hiyerarşisine uygun olarak çalışacak tüm testleri
+xml formatın da yazmamızdır
+
+eğer istediğimiz tüm testlere ulaşmak için birden fazla hiyerarşi oluşturmamız gerekirse
+sonraki hiyerarşileri uygun adımdan başlatmamız gerekir-->
+<suite name="istenen class ları çalıştırma">
+    <test name="classlar">
+        <classes>
+            <class name="tests.day16_notations.C03_Priority"></class>
+        <class name="tests.day17_pom.C01_yeniDriverilkClass"></class>
+        </classes>
+    </test>
+</suite>

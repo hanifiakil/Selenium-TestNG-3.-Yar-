@@ -34,10 +34,10 @@ public class C04_DependsOnMethods {
     public void tearDown(){
 
         driver.quit();}
-    @Test
+    @Test(groups = {"grup1","grup2"})
     public void test01() {
         //amazon sayfasına gidelim
-        driver.get("https:www.babaamazon.com");
+        driver.get("https:www.amazon.com");
     }
 
     @Test(dependsOnMethods = "test01")
